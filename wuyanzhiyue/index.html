@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>无颜之月在线 - 高清漫画阅读与资源索引平台</title>
+    <meta name="description" content="提供无颜之月在线高清漫画阅读服务，包含章节导航、剧情简介及正版阅读渠道指引。专注于二次元内容索引与资源整理，致力于为读者提供便捷的漫画访问体验。">
+    <meta name="keywords" content="无颜之月, 无颜之月在线, 漫画阅读, 漫画索引, 动漫资源, 二次元">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --bg-color: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Main Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Section Styling */
+        .section-title {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 280px;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            flex: 1;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background-color: #1a252f;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .sidebar-list {
+            list-style: none;
+        }
+
+        .sidebar-list li {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+        }
+
+        .sidebar-list li:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-list a {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-main);
+        }
+
+        .sidebar-list a:hover {
+            color: var(--accent-color);
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background-color: #eee;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .tag:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Info Section */
+        .info-section {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 60px;
+        }
+
+        .info-content h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .info-content p {
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background-color: #f9f9f9;
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #ccc;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-inner {
+                padding: 0 15px;
+            }
+
+            nav {
+                display: none; /* Simplified for mobile, normally would be a drawer */
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">
+            <span>无</span>颜之月在线
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">漫画索引</a></li>
+                <li><a href="#">章节导航</a></li>
+                <li><a href="#">相关推荐</a></li>
+            </ul>
+        </nav>
+        <div class="mobile-menu-btn">☰</div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>无颜之月在线阅读指南</h1>
+        <p>致力于为读者提供关于无颜之月的高清漫画资源索引、剧情背景及正版阅读渠道查询服务。</p>
+    </div>
+</section>
+
+<main class="container">
+    <div class="content-grid">
+        <!-- Left Column: Main Content -->
+        <div class="main-column">
+            
+            <!-- Introduction -->
+            <section class="info-section">
+                <h2 class="section-title">作品简介</h2>
+                <div class="info-content">
+                    <p>《无颜之月》（无颜之月，又译为《无脸之月》）是一部日本成人向漫画作品，作者为井上和彦。该作品以其独特的叙事风格、深刻的心理描写以及极具冲击力的画面表现力，在漫画界拥有极高的知名度。故事围绕着主角在特定环境下的心理变化与人际冲突展开，探讨了人性中的欲望、压抑与救赎。</p>
+                    <div class="highlight-box">
+                        <strong>阅读提示：</strong> 该作品属于成人向漫画，包含较为成熟的剧情与画面内容，请根据个人心理承受能力谨慎选择阅读渠道。
+                    </div>
+                    <p>对于寻找“无颜之月在线”资源的读者，本站提供最新的章节索引与正版阅读入口指引，确保您能够以安全、合规的方式体验这部经典作品。</p>
+                </div>
+            </section>
+
+            <!-- Chapter List / Updates -->
+            <section>
+                <h2 class="section-title">章节索引与导航</h2>
+                <p style="margin-bottom: 15px; color: #666; font-size: 0.9rem;">以下为作品主要章节列表，请点击链接跳转至对应阅读页面。</p>
+                <div class="card-grid" style="grid-template-columns: 1fr;">
+                    <article class="card" style="flex-direction: row; align-items: center; padding: 15px;">
+                        <div style="flex: 1;">
+                            <h3 class="card-title" style="margin-bottom: 5px;">第1话：开端</h3>
+                            <p class="card-desc">故事的开篇，主角初入新环境，命运的齿轮开始转动。</p>
+                        </div>
+                        <a href="#" class="btn">阅读</a>
+                    </article>
+                    <article class="card" style="flex-direction: row; align-items: center; padding: 15px;">
+                        <div style="flex: 1;">
+                            <h3 class="card-title" style="margin-bottom: 5px;">第2话：接触</h3>
+                            <p class="card-desc">人际关系的微妙变化，秘密的初次浮现。</p>
+                        </div>
+                        <a href="#" class="btn">阅读</a>
+                    </article>
+                    <article class="card" style="flex-direction: row; align-items: center; padding: 15px;">
+                        <div style="flex: 1;">
+                            <h3 class="card-title" style="margin-bottom: 5px;">第3话：深层</h3>
+                            <p class="card-desc">剧情深入，心理层面的博弈逐渐展开。</p>
+                        </div>
+                        <a href="#" class="btn">阅读</a>
+                    </article>
+                    <article class="card" style="flex-direction: row; align-items: center; padding: 15px;">
+                        <div style="flex: 1;">
+                            <h3 class="card-title" style="margin-bottom: 5px;">第4话：转折</h3>
+                            <p class="card-desc">关键情节的发生，局势发生不可逆转的变化。</p>
+                        </div>
+                        <a href="#" class="btn">阅读</a>
+                    </article>
+                    <article class="card" style="flex-direction: row; align-items: center; padding: 15px;">
+                        <div style="flex: 1;">
+                            <h3 class="card-title" style="margin-bottom: 5px;">第5话：终章</h3>
+                            <p class="card-desc">故事的最终走向，余韵悠长。</p>
+                        </div>
+                        <a href="#" class="btn">阅读</a>
+                    </article>
+                </div>
+            </section>
+        </div>
+
+        <!-- Right Column: Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3 class="section-title" style="font-size: 1.2rem; border: none; padding: 0;">热门标签</h3>
+                <div class="tag-cloud">
+                    <a href="#" class="tag">成人漫画</a>
+                    <a href="#" class="tag">心理悬疑</a>
+                    <a href="#" class="tag">井上和彦</a>
+                    <a href="#" class="tag">漫画推荐</a>
+                    <a href="#" class="tag">日系漫画</a>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="section-title" style="font-size: 1.2rem; border: none; padding: 0;">相关作品</h3>
+                <ul class="sidebar-list">
+                    <li>
+                        <a href="#">
+                            <span>快感指令</span>
+                            <span>→</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>夏日时光机</span>
+                            <span>→</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>天使的诱惑</span>
+                            <span>→</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>淫兽学园</span>
+                            <span>→</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="section-title" style="font-size: 1.2rem; border: none; padding: 0;">阅读指南</h3>
+                <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">
+                    本站仅提供资源索引与导航服务，不直接托管漫画文件。请支持正版，通过合法渠道购买或订阅相关作品。
+                </p>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">免责声明</a>
+            <a href="#">版权声明</a>
+            <a href="#">联系方式</a>
+        </div>
+        <p class="copyright">
+            &copy; 2023 无颜之月在线资源索引站. All Rights Reserved.<br>
+            本站内容仅供学习交流与资源导航使用，请勿用于任何非法用途。
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>
